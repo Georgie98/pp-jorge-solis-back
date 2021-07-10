@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" >
+			<div class="wrap-login100" id= "userWrap">
+				
+				<div   id="userForm">
+					<div>
+						<span class="login100-form-title" id="userTitle">
+							All users
+							
+						</span>
+					</div>
+					
+					<div class="wrap-input100 " required>
+						<table>
+							<tr>
+							   <th id="thName">Name</th><th id="thMail">Mail</th><th id="thPhone">Phone</th><th id="thAge">Age</th>
+							</tr>
+						 
+							<% users.forEach(function(user){ %>
+							 <tr>
+							   <td><%= user.name %></td>
+							   <td><%= user.mail %></td>
+							   <td><%= user.phone %></td>
+							   <td><%= user.age %></td>
+							 </tr>    
+							<% }); %>
+						
+						 </table>
+						 
+					</div>
+	
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" style="width: 200px;">
+							Renew
+						</button>
+					</div>
+									
+				</div>
+			</div>
+		</div>
+	</div>	
+
+	
+<!--===============================================================================================-->	
+	<script src="/public/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/bootstrap/js/popper.js"></script>
+	<script src="/public/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+
+			$(this).on('ps-x-reach-start', function(){
+				$(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
+			});
+
+			$(this).on('ps-scroll-x', function(){
+				$(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
+			});
+
+		});
+
+	</script>
+	<script src="/vendor/js/main.js"></script>
+</body>
+</html>
